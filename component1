@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSX with JS</title>
+    <script src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    const list = [ "Right handed", "3 knobs", "Teal"] ;
+    const styling = {fontSize: "12px", Color: "blue"};
+   
+    class List extends React.Component {
+       render() {
+        return (<ul>
+                list.map( h => <li style={styling}> {h} </li>)
+                </ul>);
+      }
+    }
+  
+    class Guitar extends React.Component {
+      render() {
+       const colors = ["red", "blue", "green", "yellow", "white"];
+       const x = Math.floor((Math.random() * 5) );
+       const divSytling  = {backgroundColor: colors[x]};
+       
+        return (<div className = "card" style = {divSytling} >
+                  <h2>Gibson</h2>
+                  <img src="https://media.guitarcenter.com/is/image/MMGS7/Charger-290-Maple-Fingerboard-Electric-Guitar-Oceanside-Green/L19809000001000-00-220x220.jpg" />
+                </div>);
+      }
+    }
+
+    ReactDOM.render(<Guitar />, document.getElementById("app"));
+  </script>
+</body>
+</html>
